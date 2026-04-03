@@ -1,0 +1,18 @@
+{
+  "name": "jsaqa-homeworks-7-06",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "snezhka003",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "cy-laptop-firefox-headless": "cypress run --browser firefox --config-file cypress.config.js --headless",
+    "cy-mobile-firefox-headless": "cypress run --browser firefox --config-file cypress.mobile.config.js --headless",
+    "cy-laptop-chrome-headed": "cypress run --browser chrome --config-file cypress.config.js --headed",
+    "cy-mobile-chrome-headed": "cypress run --browser chrome --config-file cypress.mobile.config.js --headed"
+  },
+  "dependencies": {
+    "cypress": "^15.13.0"
+  }
+}
