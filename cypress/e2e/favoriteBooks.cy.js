@@ -13,13 +13,21 @@ describe('favorite books tests', () => {
   });
 
   it('Should successfully adding a book to favorites after creation', () => {
-    let title = 'Book '+ Date.now();
+    let bookTitle = 'Book '+ Date.now();
     
-    cy.addBook(title, "1475test", "test tests author", "");
-    cy.contains(title).should('be.visible');
-    cy.contains('Add to favorite').click();
+    cy.addBook(bookTitle, "1475test", "test tests author", "");
+    cy.get('.card-title.h5')
+      .contains(bookTitle)
+      .parent('.card-body')
+      .parent('.card')
+      .as('bookCard'); // сохраняем карточку в алиас bookCard
+    cy.get('@bookCard')
+      .find('.card-footer')
+      .find('.btn.btn-success')
+      .contains('Add to favorite')
+      .click();
     cy.contains('Favorites').click();
-    cy.contains(title).should('be.visible');
+    cy.contains(bookTitle).should('be.visible');
   });
 
   it('Should successfully deleted a book from favorites', () => {
